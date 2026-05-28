@@ -1,7 +1,7 @@
 #include <iostream>
-#include <linear-algebra/LU/LU.hpp>
-#include <linear-algebra/vector_matrix/FlatMatrix.hpp>
-#include <linear-algebra/LU/Inversion.hpp>
+#include <decompose/LU/LU.hpp>
+#include <matrix/FlatMatrix.hpp>
+#include <decompose/LU/Inversion.hpp>
 #include <memory>
 
 int main() {
@@ -15,12 +15,6 @@ int main() {
     };
 
     ColumnVector<double> y = {2,4,5,7};
-    /*FlatMatrix<double> y = {
-        {2},
-        {4},
-        {5},
-        {7}
-    };*/
 
     auto XT = ~X;
     auto XTX = XT*X;
