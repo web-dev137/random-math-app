@@ -1,6 +1,7 @@
 #include <iostream>
 #include <linear-algebra/LU/LU.hpp>
 #include <linear-algebra/vector_matrix/FlatMatrix.hpp>
+#include <linear-algebra/LU/Inversion.hpp>
 #include <memory>
 
 int main() {
@@ -24,8 +25,9 @@ int main() {
     auto XT = ~X;
     auto XTX = XT*X;
     auto XTy = XT*y;
-    LU<double> lu = LU<double>(XTX);
-    auto Xinv = lu.inv();
+    auto lu = LU<double,FlatMatrix<double>>(XTX);
+    auto I = Inversion<double,FlatMatrix<double>>(lu);
+    auto Xinv = I.inv();
     auto B = Xinv * XTy;
    
     std::cout << "Input data:\n";
