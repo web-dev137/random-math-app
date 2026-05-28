@@ -19,7 +19,7 @@ int main() {
     auto XT = ~X;
     auto XTX = XT*X;
     auto XTy = XT*y;
-    auto lu = LU<double,FlatMatrix<double>>(XTX);
+    auto lu = LU<double,FlatMatrix<double>>(std::move(XTX));
     auto I = Inversion<double,FlatMatrix<double>>(lu);
     auto Xinv = I.inv();
     auto B = Xinv * XTy;
