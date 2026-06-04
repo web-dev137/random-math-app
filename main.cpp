@@ -20,8 +20,8 @@ int main() {
     auto XTX = XT*X;
     auto XTy = XT*y;
     auto lu = LU<double,FlatMatrix<double>>(std::move(XTX));
-    auto I = Inversion<double,FlatMatrix<double>>(lu);
-    auto Xinv = I.inv();
+
+    auto Xinv = lu.inv();
     auto B = Xinv * XTy;
    
     std::cout << "Input data:\n";
