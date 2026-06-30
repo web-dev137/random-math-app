@@ -1,7 +1,6 @@
 #include <iostream>
 #include <decompose/LU/LU.hpp>
 #include <matrix/FlatMatrix.hpp>
-#include <decompose/LU/Inversion.hpp>
 #include <memory>
 
 int main() {
@@ -22,6 +21,7 @@ int main() {
     auto lu = LU<double,FlatMatrix<double>>(std::move(XTX));
 
     auto Xinv = lu.inv();
+    
     auto B = Xinv * XTy;
    
     std::cout << "Input data:\n";
